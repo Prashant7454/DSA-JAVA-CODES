@@ -52,7 +52,44 @@ public class CurcularLinkedList {
         }
     }
 
+    public void deleteFromBeginning(){
+        if(head == null){
+            System.out.println("under flow");
+        }
+        else if(head.next == head){
+            head = null;
+        }
+        else{
+            Node temp = head.next;
+            while(temp.next != head){
+                temp = temp.next;
+            }
+            head = head.next;
+            temp.next = head;
+        }
+    }
+
+    public void deleteFromEnd(){
+        if(head == null){
+            System.out.println("under flow");
+        }
+        else if(head.next == head){
+            head = null;
+        }
+        else{
+            Node temp = head.next;
+            while(temp.next.next!=head){
+                temp = temp.next;
+            }
+            temp.next = head;
+        }
+    }
+
     public void display(){
+        if(head == null){
+            System.out.println("under Flow");
+            return;
+        }
         Node temp = head.next;
         System.out.print(head.data + "->");
         while(temp!=head){
@@ -65,14 +102,8 @@ public class CurcularLinkedList {
     public static void main(String[] args) {
         CurcularLinkedList obj = new CurcularLinkedList();
         obj.addNode(13);
-        obj.addNode(21);
-        obj.addNode(24);
-        obj.addNode(19);
-        obj.addNode(18);
-        obj.addNode(16);
-        obj.addNode(14);
         obj.display();
-        obj.addAtBeginning(40);
+        obj.deleteFromBeginning();
         obj.display();
     }
 }

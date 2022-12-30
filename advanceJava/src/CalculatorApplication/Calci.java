@@ -13,7 +13,7 @@ public class Calci implements ActionListener{
     static int op;
     Calci(){
         f = new JFrame("calculator");
-        title = new JLabel("Calculator By Prashant Singh");
+        title = new JLabel("Calculator By Himanshu");
         f.add(title);
         title.setBounds(70,40,350,40);
         title.setFont(new Font ("Arial",Font.BOLD,30));

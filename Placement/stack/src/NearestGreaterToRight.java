@@ -4,7 +4,7 @@ import java.util.Vector;
 
 public class NearestGreaterToRight {
     public static void main(String[] args) {
-        int arr[] = {1,3,2,4};
+        int arr[] = {1,8,6,2,5,4,8,3,7};
         Vector<Integer> v = new Vector<>();
         Stack<Integer> s = new Stack<>();
 

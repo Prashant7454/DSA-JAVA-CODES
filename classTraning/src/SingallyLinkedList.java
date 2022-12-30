@@ -1,4 +1,4 @@
-public class DeleteNodeAtEnd {
+public class SingallyLinkedList {
     Node head;
     class Node{
         int data;
@@ -10,7 +10,7 @@ public class DeleteNodeAtEnd {
     }
 
     public void insertAfterValue(int data,int value){
-        DeleteNodeAtEnd.Node newNode = new Node(data);
+        SingallyLinkedList.Node newNode = new Node(data);
         if(head==null){
             System.out.println("Value not found");
         }
@@ -33,7 +33,7 @@ public class DeleteNodeAtEnd {
 
     }
     public void insertBeforeValue(int data,int value){
-        DeleteNodeAtEnd.Node newNode = new Node(data);
+        SingallyLinkedList.Node newNode = new Node(data);
         if(head==null){
             System.out.println("Value not found");
         }
@@ -155,7 +155,7 @@ public class DeleteNodeAtEnd {
     }
 
     public static void main(String[] args) {
-        DeleteNodeAtEnd obj = new DeleteNodeAtEnd();
+        SingallyLinkedList obj = new SingallyLinkedList();
         obj.setNode(13);
         obj.setNode(15);
         obj.setNode(17);
