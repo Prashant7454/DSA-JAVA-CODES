@@ -1,5 +1,4 @@
-/*not done*/
-
+import java.util.List;
 
 public class ReverseInNodesInKGroup {
     static class ListNode{
@@ -10,61 +9,47 @@ public class ReverseInNodesInKGroup {
             next=null;
         }
     }
-    public ListNode reverse(ListNode head){
-        ListNode prev = head.next;
-        ListNode temp = prev.next;
-        if(temp==null){
-            prev.next=head;
-            head = head.next;
-            prev.next.next=null;
-            return head;
-        }
-        prev.next = head;
-        head.next = null;
-        head = prev;
-        prev = temp;
-        temp = temp.next;
-        while(temp!=null){
-            prev.next = head;
-            head = prev;
-            prev = temp;
-            temp = temp.next;
-        }
-        prev.next = head;
-        head = prev;
-        return head;
-    }
     public ListNode reverseKGroup(ListNode head, int k) {
         if(head==null||head.next==null||k==1){
             return head;
         }
         int count = 0;
-        ListNode temp = head;
-        while(temp!=null){
+        ListNode check = head;
+        while(check!=null){
             count++;
-            temp = temp.next;
+            check = check.next;
         }
-        temp = head;
         int pairs = count/k;
-        ListNode tempHead = null;
-        ListNode tempVal = head;
-        int i = 0;
-        int j = 0;
+        ListNode tempHead = head;
+        ListNode Prev = head;
+        ListNode Temp = head;
+        ListNode Next = head;
+        ListNode prevTemp = head;
+        int i = 1;
         while(i<=pairs){
-            j = 1;
-            ListNode n1 = new ListNode(tempVal.val);
-            tempHead = n1;
-            ListNode t = tempHead;
-            tempVal = tempVal.next;
-            while(j<=k){
-                ListNode n = new ListNode(tempVal.val);
-                t.next = n;
-                t = t.next;
+            tempHead = Next;
+            Prev = tempHead;
+            Temp = Prev.next;
+            Next = Temp.next;
+            int j = 1;
+            while (j<k-1){
+                Temp.next = Prev;
+                Prev = Temp;
+                Temp = Next;
+                Next = Next.next;
                 j++;
             }
-            reverse(tempHead);
+            Temp.next = Prev;
+            if(i==1){
+                head = Temp;
+            }
+            else{
+                prevTemp.next = Temp;
+                prevTemp = tempHead;
+            }
             i++;
         }
+        prevTemp.next = Next;
         return head;
     }
 
@@ -74,20 +59,30 @@ public class ReverseInNodesInKGroup {
         head1 = n1;
         ListNode n2 = new ListNode(2);
         n1.next = n2;
-        ListNode n3 = new ListNode(4);
+        ListNode n3 = new ListNode(3);
         n2.next = n3;
+        ListNode n4 = new ListNode(4);
+        n3.next = n4;
+        ListNode n5 = new ListNode(5);
+        n4.next = n5;
+        ListNode n6 = new ListNode(6);
+        n5.next = n6;
+        ListNode n7 = new ListNode(7);
+        n6.next = n7;
+        ListNode n8 = new ListNode(8);
+        n7.next = n8;
         ListNode c = head1;
         while(c!=null){
             System.out.print(c.val+"->");
             c =c.next;
         }
-        ReverseInNodesInKGroup obj = new ReverseInNodesInKGroup();
-        ListNode head = obj.reverse(head1);
-        ListNode temp = head;
         System.out.println();
-        while(temp!=null){
-            System.out.print(temp.val + "->");
-            temp = temp.next;
+        ReverseInNodesInKGroup obj = new ReverseInNodesInKGroup();
+        ListNode s = obj.reverseKGroup(head1,5);
+        ListNode p =s;
+        while(p!=null){
+            System.out.print(p.val+"->");
+            p =p.next;
         }
     }
 }
