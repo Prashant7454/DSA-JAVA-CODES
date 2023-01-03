@@ -71,7 +71,7 @@ public class MergeTwoSortedList {
     public static void main(String[] args) {
         ListNode head1 = null;
         ListNode n1 = new ListNode(1);
-//        head1 = n1;
+        head1 = n1;
         ListNode n2 = new ListNode(2);
         n1.next = n2;
         ListNode n3 = new ListNode(4);
