@@ -1,5 +1,3 @@
-import java.util.List;
-
 public class ReverseInNodesInKGroup {
     static class ListNode{
         int val;
