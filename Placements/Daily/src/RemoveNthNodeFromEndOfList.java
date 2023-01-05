@@ -1,17 +1,17 @@
-import java.util.List;
-
 public class RemoveNthNodeFromEndOfList {
+
     static class ListNode {
+
       int val;
       ListNode next;
       ListNode(int data) {
           this.val = data;
           next = null;
       }
-
     }
 
     public ListNode removeNthFromEnd(ListNode head, int n) {
+
         if(head==null || head.next==null){
             return null;
         }
@@ -40,6 +40,7 @@ public class RemoveNthNodeFromEndOfList {
         return head;
     }
     public static void main(String[] args) {
+
         ListNode head1 = null;
         ListNode n1 = new ListNode(1);
         head1 = n1;
